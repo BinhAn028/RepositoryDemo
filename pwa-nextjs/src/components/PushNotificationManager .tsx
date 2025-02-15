@@ -146,6 +146,16 @@ export function PushNotificationManager() {
         <>
           <p>You are not subscribed to push notifications.</p>
           <button onClick={subscribeToPush}>Subscribe</button>
+          <input
+            className='w-32 bg-black p-2 rounded-md'
+            type='text'
+            placeholder='Enter notification message'
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <button onClick={postMessageToServiceWorker}>
+            Send Service Worker
+          </button>
         </>
       )}
     </div>
