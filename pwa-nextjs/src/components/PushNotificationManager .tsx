@@ -69,7 +69,7 @@ export function PushNotificationManager() {
         console.log('error :>> ', error);
       }
     };
-    // init();
+    init();
   }, [enable]);
 
   async function registerServiceWorker() {

@@ -10,6 +10,15 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV !== 'development', // Remove console.log in production
   },
+  images: {
+    formats: ['image/avif', 'image/webp'] as any,
+    // deviceSizes: [120, 320, 420, 768, 1024, 1200],
+    remotePatterns: [
+      {
+        hostname: '*',
+      },
+    ],
+  },
   // output: "export",
   trailingSlash: true,
   // webpack: (config: any, { isServer }: { isServer: any }) => {
