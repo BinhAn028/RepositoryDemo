@@ -1,36 +1,35 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import Script from 'next/script';
 
 export default function Home() {
-
   const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "John Doe",
-    "url": "http://www.johndoe.com",
-    "image": "http://www.johndoe.com/profile.jpg",
-    "jobTitle": "Software Developer",
-    "telephone": "+1-800-555-5555",
-    "email": "john.doe@example.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "123 Main St",
-      "addressLocality": "Anytown",
-      "addressRegion": "CA",
-      "postalCode": "12345",
-      "addressCountry": "USA"
-    }
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'John Doe',
+    url: 'http://www.johndoe.com',
+    image: 'http://www.johndoe.com/profile.jpg',
+    jobTitle: 'Software Developer',
+    telephone: '+1-800-555-5555',
+    email: 'john.doe@example.com',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '123 Main St',
+      addressLocality: 'Anytown',
+      addressRegion: 'CA',
+      postalCode: '12345',
+      addressCountry: 'USA',
+    },
   };
 
   return (
     <div>
-      <Head>
-        <Script type="application/ld+json"
-          strategy="afterInteractive">
-          {JSON.stringify(jsonLd)}
-        </Script>
-      </Head>
+      <Script
+        type='application/ld+json'
+        id='json-ld'
+        strategy='afterInteractive'
+      >
+        {JSON.stringify(jsonLd)}
+      </Script>
       <div className='grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-2 font-[family-name:var(--font-geist-sans)]'>
         <main className='flex flex-col gap-8 row-start-2 items-center sm:items-start'>
           {/* <div className='w-[855px] h-[497px] relative'>

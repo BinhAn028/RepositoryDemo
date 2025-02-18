@@ -6,11 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "test_noti": "npx ts-node ./src/components/test_noti.ts",
+    "test_noti": "npx ts-node ./src/components/app/home/test_noti.ts",
     "format": "prettier --write .",
     "lint": "next lint"
   },
   "dependencies": {
+    "dayjs": "^1.11.13",
     "dotenv": "^16.4.7",
     "next": "15.1.1",
     "next-pwa": "^5.6.0",
