@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import Link from "next/link";
+import LinkComponent from "./LinkComponent";
 import { randomInt } from "node:crypto";
 
 export default async function Component2() {
@@ -8,13 +8,14 @@ export default async function Component2() {
   const jsonData = JSON.parse(searchParams || '{}');
   const request = jsonData?.data || '';
   const data: any = await fetchData2(request); // Giả sử mất 10s
-  return <Link href={`/rsc?data=${randomInt(100)}`} prefetch={false}>Component 2: {data}</Link>;
+  const random = randomInt(100);
+  return <LinkComponent data={data} random={random}/>;
 }
 
 const fetchData2 = async (request = '') => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("Data 2: " + request);
-    }, 5000);
+    }, 2000);
   });
 }
