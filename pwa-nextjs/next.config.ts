@@ -1,14 +1,21 @@
 // import type { NextConfig } from "next";
+import dayjs from 'dayjs';
 import withPWA from 'next-pwa';
 // import path from 'path';
 // import fs from 'fs';
 // import * as Terser from 'terser';
 
 const nextConfig = {
+  env: {
+    BUILD_TIME: dayjs().toDate().toISOString(),
+  },
   reactStrictMode: true, // Enable React strict mode for improved error handling
   // swcMinify: true, // Enable SWC minification for improved performance
   compiler: {
     removeConsole: process.env.NODE_ENV !== 'development', // Remove console.log in production
+  },
+  experimental: {
+    ppr: 'incremental' as any,
   },
   images: {
     formats: ['image/avif', 'image/webp'] as any,
@@ -21,6 +28,7 @@ const nextConfig = {
   },
   // output: "export",
   trailingSlash: true,
+  
   // webpack: (config: any, { isServer }: { isServer: any }) => {
   //     if (!isServer) {
   //         const swFilePath = path.resolve(__dirname, 'public/sw.js');

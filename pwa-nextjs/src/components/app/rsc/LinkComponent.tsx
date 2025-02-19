@@ -22,13 +22,14 @@ export default function LinkComponent({
     <>
       <Link
         href={`/rsc?data=${random}`}
-        prefetch={false}
+        prefetch={undefined}
+        // prefetch={false}
         onClick={(e) => {
           e.preventDefault();
           router.push(`/rsc?data=${random}`);
         }}
       >
-        Component 2: {data} , {random}
+        LinkComponent: {data} , {random}
       </Link>
       <ClientComponent />
     </>
