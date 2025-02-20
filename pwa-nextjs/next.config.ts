@@ -14,9 +14,9 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV !== 'development', // Remove console.log in production
   },
-  experimental: {
-    ppr: 'incremental' as any,
-  },
+  // experimental: {
+  //   ppr: 'incremental' as any,
+  // },
   images: {
     formats: ['image/avif', 'image/webp'] as any,
     // deviceSizes: [120, 320, 420, 768, 1024, 1200],
@@ -28,7 +28,7 @@ const nextConfig = {
   },
   // output: "export",
   trailingSlash: true,
-  
+
   // webpack: (config: any, { isServer }: { isServer: any }) => {
   //     if (!isServer) {
   //         const swFilePath = path.resolve(__dirname, 'public/sw.js');

@@ -1,7 +1,7 @@
-import Component1 from '@/components/app/rsc/Component1';
-import Component2 from '@/components/app/rsc/Component2';
+// import Component1 from '@/components/app/rscload/ClientComponentGetData';
+// import Component2 from '@/components/app/rsc/Component2';
 import nextDynamic from 'next/dynamic';
-import { Suspense } from 'react';
+// import { Suspense } from 'react';
 
 const LinkComponent = nextDynamic(
   () => import('@/components/app/rsc/LinkComponent'),
@@ -9,12 +9,12 @@ const LinkComponent = nextDynamic(
 
 export const revalidate = 60;
 // export const dynamicParams = false;
-// export const dynamic = 'auto'; // Default 
+// export const dynamic = 'auto'; // Default
 // export const dynamic = 'force-dynamic';
 // export const dynamic = 'force-static';
 
 // PPR = true: Pre-rendering Partial
-export const experimental_ppr = true
+export const experimental_ppr = true;
 
 type Params = {
   slug: string;
@@ -24,7 +24,7 @@ export async function generateStaticParams(): Promise<Params[]> {
   // Trả về mảng các tham số động
   return [1, 2, 3, 4, 5].map((i) => {
     return {
-      slug: `page-${i}`
+      slug: `page-${i}`,
     };
   });
 }
@@ -47,21 +47,18 @@ export default async function Page({
   return (
     <div className='mx-4'>
       <div className='text-3xl color-red my-4'>Data: {slug}</div>
-      <div className='text-3xl color-red my-4'>TextFetchNew: {textFetchNew}</div>
       <div className='text-3xl color-red my-4'>
-        Date: {serverTime}
+        TextFetchNew: {textFetchNew}
       </div>
-      <LinkComponent
-        data={serverTime}
-        random={1}
-      ></LinkComponent>
-      <Suspense fallback={<div>Loading Component 1...</div>}>
+      <div className='text-3xl color-red my-4'>Date: {serverTime}</div>
+      <LinkComponent data={serverTime} random={1}></LinkComponent>
+      {/* <Suspense fallback={<div>Loading Component 1...</div>}>
         <Component1 />
       </Suspense>
 
       <Suspense fallback={<div>Loading Component 2...</div>}>
         <Component2 />
-      </Suspense>
+      </Suspense> */}
     </div>
   );
 }

@@ -1,33 +1,18 @@
-import Component1 from '@/components/app/rsc/Component1';
+import Component1 from '@/components/app/rscload/ClientComponentGetData';
 import Component2 from '@/components/app/rsc/Component2';
 import { Suspense } from 'react';
+import Link from 'next/link';
 
-type Params = {
-  slug: string;
-};
-
-// export const dynamicParams = false;
-
-export async function generateStaticParams(): Promise<Params[]> {
-  // Trả về mảng các tham số động
-  return [1, 2, 3, 4, 5].map((i) => {
-    return {
-      slug: `page-${i}`,
-    };
-  });
-}
-
-// export type PageProps = Promise<{ slug?: string }>;
-
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+export default async function Page() {
   return (
     <div className='mx-4'>
-      <div className='text-3xl color-red my-4'>Data: {slug}</div>
+      <div className='text-3xl color-red my-4'>Data: 1111</div>
+      <Link href={`/rscload?data=1`} prefetch={true}>
+        LinkComponent: 2222 , 3333
+      </Link>
+      <Link href={`/rscload?data=1`} prefetch={undefined}>
+        LinkComponent: 2222 , 3333
+      </Link>
       <Suspense fallback={<div>Loading Component 1...</div>}>
         <Component1 />
       </Suspense>
