@@ -1,5 +1,11 @@
-'use client';
+'use client'; // Bắt buộc để dùng useEffect
+
+import { useEffect } from 'react';
 
 export default function ClientComponent() {
-  return <div>Client Component</div>;
+  useEffect(() => {
+    console.log('Component mounted');
+  }, []);
+
+  return <p>Hello from Client Component</p>;
 }
