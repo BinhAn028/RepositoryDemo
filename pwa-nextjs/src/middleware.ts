@@ -22,5 +22,5 @@ export async function middleware(request: NextRequest) {
 export const config = {
   // matcher: '/((?!api|static|.*\\..*|_next).*)',
   matcher: "/((?!static|.*\\..*|_next).*)",
-  runtime: "nodejs", // Chạy trên Node.js thay vì Edge
+  // runtime: "nodejs", // Chạy trên Node.js thay vì Edge
 };
