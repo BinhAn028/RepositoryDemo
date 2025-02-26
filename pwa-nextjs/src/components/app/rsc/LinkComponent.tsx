@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const ClientComponent = dynamic(
   () => import('@/components/app/rsc/ClientComponent'),
-  // { ssr: false },
+  { ssr: false },
 );
 
 export default function LinkComponent({

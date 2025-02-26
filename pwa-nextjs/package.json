@@ -5,15 +5,18 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "analyze": "set ANALYZE=true && npm run build",
     "start": "next start",
     "test_noti": "npx ts-node ./src/components/app/home/test_noti.ts",
     "format": "prettier --write .",
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^15.1.7",
     "dayjs": "^1.11.13",
     "dotenv": "^16.4.7",
     "next": "^15.2.0-canary.66",
+    "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.6.0",
     "prettier": "^3.4.2",
     "react": "^19.0.0",

@@ -1,8 +1,9 @@
-'use client'; // Bắt buộc để dùng useEffect
+"use client"; // Bắt buộc để dùng useEffect
 
 import { useEffect } from 'react';
 
 export default function ClientComponent() {
+
   useEffect(() => {
     console.log('Component mounted');
   }, []);

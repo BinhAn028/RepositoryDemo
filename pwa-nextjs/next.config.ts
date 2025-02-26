@@ -1,6 +1,8 @@
 // import type { NextConfig } from "next";
 import dayjs from 'dayjs';
-import withPWA from 'next-pwa';
+import bundleAnalyzer from "@next/bundle-analyzer";
+import nextPWA from 'next-pwa';
+
 // import path from 'path';
 // import fs from 'fs';
 // import * as Terser from 'terser';
@@ -57,10 +59,17 @@ const nextConfig = {
 
 // export default nextConfig;
 
-export default withPWA({
+// Cấu hình Bundle Analyzer
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
+const withPWA = nextPWA({
   dest: 'public', // destination directory for the PWA files
-  swSrc: 'sw.js',
-  // disable: process.env.NODE_ENV === "development",        // disable PWA in the development environment
+  disable: process.env.NODE_ENV === "development", // disable PWA in the development environment
   register: true, // register the PWA service worker
   skipWaiting: true, // skip waiting for service worker activation
-})(nextConfig);
+});
+
+// Xuất cấu hình Next.js
+export default withBundleAnalyzer(withPWA(nextConfig) as any);
