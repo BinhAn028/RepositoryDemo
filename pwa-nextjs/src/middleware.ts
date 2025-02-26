@@ -11,7 +11,7 @@ export async function middleware(request: NextRequest) {
   console.log('1111111111111')
   // response.headers.set("Access-Control-Expose-Headers", "X-Custom-Header");
   response.headers.set("X-Custom-Header", "Middleware!");
-  // response.headers.set('x-search-param', JSON.stringify(allParams) || '');
+  response.headers.set('x-search-param', JSON.stringify(allParams) || '');
   // response.headers.set('x-path-name', url.pathname || '');
   response.headers.set('x-runtime', process.env.NEXT_RUNTIME || "unknown");
   //

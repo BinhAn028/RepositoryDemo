@@ -61,7 +61,8 @@ const nextConfig = {
 
 // Cấu hình Bundle Analyzer
 const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === "true",
+  // enabled: process.env.ANALYZE === "true",
+  enabled: false,
 });
 
 const withPWA = nextPWA({
