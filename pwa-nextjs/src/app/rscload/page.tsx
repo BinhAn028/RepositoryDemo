@@ -1,5 +1,6 @@
 import Component2 from '@/components/app/rsc/Component2';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { Suspense } from 'react';
 
 const ClientComponentAll = dynamic(() => import('@/components/app/rscload/ClientComponentAll'));
@@ -14,6 +15,7 @@ export default async function Page() {
       <Suspense fallback={<div>Loading Component 2...</div>}>
         <Component2 />
       </Suspense>
+      <Link href="/">Home</Link> 
     </div>
   );
 }

@@ -1,4 +1,3 @@
-import { Modal } from "@/components/app/parallelroute/modal";
 import Link from "next/link";
 
 

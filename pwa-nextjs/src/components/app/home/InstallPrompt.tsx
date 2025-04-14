@@ -1,7 +1,11 @@
 'use client';
+import NProgress from '@/providers/progressProvider/nprogress';
+import { useRouter } from 'next-nprogress-bar';
 import { useEffect, useState } from 'react';
+// import { useRouter } from 'next/navigation';
 
 export default function InstallPrompt() {
+  const router = useRouter();
   const [isIOS, setIsIOS] = useState(false);
   const [isStandalone, setIsStandalone] = useState(false);
 
@@ -35,6 +39,12 @@ export default function InstallPrompt() {
           .
         </p>
       )}
+      <div
+        onClick={() => {
+          NProgress.start();
+          // router.push('/rscload');
+          // NProgress.done();
+        }}>AAAAAA</div>
     </div>
   );
 }
