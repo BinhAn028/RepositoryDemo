@@ -9,7 +9,22 @@
     "start": "next start",
     "test_noti": "npx ts-node ./src/components/app/home/test_noti.ts",
     "format": "prettier --write .",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dev_electron": "concurrently \"next dev\" \"wait-on http://localhost:3000 && electron .\"",
+    "desktop": "concurrently \"next start\" \"wait-on http://localhost:3000 && electron .\"",
+    "dist": "electron-builder"
+  },
+  "main": "main.js",
+  "build": {
+    "asar": false,
+    "appId": "com.example.nextssr",
+    "productName": "NextElectronApp",
+    "files": [
+      ".next/**/*",
+      "main.js",
+      "public/**/*",
+      "package.json"
+    ]
   },
   "dependencies": {
     "@next/bundle-analyzer": "^15.1.7",
@@ -23,7 +38,8 @@
     "prettier": "^3.4.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "wait-on": "^8.0.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -32,6 +48,10 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/web-push": "^3.6.4",
+    "child_process": "^1.0.2",
+    "concurrently": "^9.1.2",
+    "electron": "^36.4.0",
+    "electron-builder": "^26.0.12",
     "eslint": "^9.17.0",
     "eslint-config-next": "15.1.1",
     "postcss": "^8",

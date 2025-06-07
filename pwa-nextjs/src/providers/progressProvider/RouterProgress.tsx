@@ -7,8 +7,8 @@ export default function RouterProgress() {
   const router = useRouter()
 
   useEffect(() => {
-    const handleStart = () => NProgress.start()
-    const handleStop = () => NProgress.done()
+    // const handleStart = () => NProgress.start()
+    // const handleStop = () => NProgress.done()
 
     // Không có router events trong useRouter App Router
     // Cần tự start/stop ở các vị trí chuyển trang custom

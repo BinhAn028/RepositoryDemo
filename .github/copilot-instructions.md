@@ -3,7 +3,7 @@
 When generating commit messages, follow these rules:
 
 - Use English for commit messages.
-- The first line must always include the author's name: `BinhAn028`.
+- The first line must always include the author's name
 - The subject line (first line) should be no more than 50 characters.
 - Use active voice and present tense verbs (e.g., "Add", "Fix").
 - Avoid vague phrases like "update", "fix bug", or "change".

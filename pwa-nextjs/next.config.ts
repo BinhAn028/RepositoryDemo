@@ -8,6 +8,7 @@ import nextPWA from 'next-pwa';
 // import * as Terser from 'terser';
 
 const nextConfig = {
+  output: 'standalone' as const,
   env: {
     BUILD_TIME: dayjs().toDate().toISOString(),
   },
