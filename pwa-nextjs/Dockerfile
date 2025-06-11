@@ -1,17 +1,37 @@
-# Use the official NGINX image
-FROM nginx:alpine
+# Use official Node.js image as the build environment
+FROM node:18-alpine AS builder
 
-# Copy the custom NGINX configuration file
-COPY ./nginx.conf /etc/nginx/nginx.conf
+WORKDIR /app
 
-# Set the working directory
-WORKDIR /usr/share/nginx/html
+# Install dependencies
+COPY package.json package-lock.json* pnpm-lock.yaml* yarn.lock* ./
+RUN \
+  if [ -f package-lock.json ]; then npm ci; \
+  elif [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm install; \
+  elif [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
+  else npm install; fi
 
-# Copy the exported Next.js static files to the default NGINX directory
-COPY ./cogiscan-frontend /usr/share/nginx/html
+# Copy all files
+COPY . .
 
-# Expose port 8000
-EXPOSE 8000
+# Build Next.js app in standalone mode
+RUN npm run build
 
-# Start NGINX
-CMD ["nginx", "-g", "daemon off;"]
+# Production image, copy only necessary files
+FROM node:18-alpine AS runner
+
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+# Copy the standalone output
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/static ./.next/static
+
+# If your app uses next.config.js or other config files, copy them as needed
+# COPY --from=builder /app/next.config.js ./
+
+EXPOSE 3000
+
+CMD ["node", "server.js"]

@@ -1,9 +1,10 @@
 import Component2 from '@/components/app/rsc/Component2';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { Suspense } from 'react';
+import ClientComponentAll from '@/components/app/rscload/ClientComponentAll';
 
-const ClientComponentAll = dynamic(() => import('@/components/app/rscload/ClientComponentAll'));
+// const ClientComponentAll = dynamic(() => import('@/components/app/rscload/ClientComponentAll'));
 
 export default async function Page() {
   return (
