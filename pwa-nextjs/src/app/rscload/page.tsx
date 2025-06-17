@@ -8,7 +8,7 @@ import ClientComponentAll from '@/components/app/rscload/ClientComponentAll';
 
 export default async function Page() {
   return (
-    <div className='mx-4'>
+    <div className='flex flex-col mx-4'>
       <div className='text-3xl color-red my-4'>Data: 1111</div>
 
       <ClientComponentAll />

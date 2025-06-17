@@ -1,18 +1,16 @@
 # Use official Node.js image as the build environment
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Install dependencies
-COPY package.json package-lock.json* pnpm-lock.yaml* yarn.lock* ./
-RUN \
-  if [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm install; \
-  elif [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
-  else npm install; fi
-
 # Copy all files
 COPY . .
+
+# Thêm dòng này trước khi yarn install
+RUN apk add --no-cache git
+
+# Install dependencies
+RUN yarn install
 
 # Build Next.js app in standalone mode
 RUN npm run build

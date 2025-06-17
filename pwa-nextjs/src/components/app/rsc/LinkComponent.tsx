@@ -20,7 +20,7 @@ export default function LinkComponent({
       <Link href={`/rscload?data=${data}`} prefetch={undefined}>
         LinkComponent: {data} , {random}
       </Link>
-      <ClientComponent />
+      {/* <ClientComponent /> */}
     </>
   );
 }
