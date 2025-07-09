@@ -42,7 +42,7 @@ export default function HomePageComponent() {
       await tx.done;
       const sw = await navigator.serviceWorker.ready;
       // Sync đợi có network để gửi tin nhắn
-      (await (sw as any).sync.register('send-messages'));
+      (sw as ServiceWorkerRegistration & { sync: { register: (tag: string) => Promise<void> } }).sync.register('send-messages');
       // Call thực hiện trực tiếp 
       sw.active?.postMessage({ type: 'SEND_MESSAGES_NOW', message });
       alert('Tin nhắn đã lưu offline và sẽ gửi khi có mạng!');
