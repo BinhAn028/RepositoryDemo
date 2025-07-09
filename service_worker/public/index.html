@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital World Clock Demo</title>
+    <meta name="description" content="A demonstration of real-time digital clocks for multiple time zones">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        .title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+        .description {
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        .features {
+            margin: 2rem 0;
+        }
+        .features ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .demo-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            margin: 1rem 0;
+        }
+        .demo-link:hover {
+            transform: translateY(-2px);
+        }
+        .tech-specs {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .tech-specs h3 {
+            margin-top: 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1 class="title">🌍 Digital World Clock Demo</h1>
+        
+        <div class="description">
+            <p>This demo showcases a real-time digital clock component that displays the current time across multiple time zones simultaneously. Built with modern web technologies for optimal performance and user experience.</p>
+        </div>
+
+        <div class="features">
+            <h2>✨ Features</h2>
+            <ul>
+                <li>Real-time updates every second</li>
+                <li>Support for 5 major time zones (UTC, EST/EDT, PST/PDT, JST, GMT+7)</li>
+                <li>Toggle between 12-hour and 24-hour formats</li>
+                <li>Responsive design for desktop and mobile</li>
+                <li>Proper timezone handling including daylight saving time</li>
+                <li>Beautiful gradient design with smooth animations</li>
+                <li>Accessibility support with ARIA labels</li>
+                <li>Clean, modern typography</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="/digital-clock" class="demo-link">🚀 View Live Demo</a>
+        </div>
+
+        <div class="tech-specs">
+            <h3>🛠️ Technical Specifications</h3>
+            <ul>
+                <li><strong>Framework:</strong> Next.js 15 with React 19</li>
+                <li><strong>Language:</strong> TypeScript for type safety</li>
+                <li><strong>Styling:</strong> CSS with responsive design principles</li>
+                <li><strong>Time Handling:</strong> Intl.DateTimeFormat API for robust timezone support</li>
+                <li><strong>Performance:</strong> Optimized with proper interval cleanup</li>
+                <li><strong>Accessibility:</strong> ARIA labels and semantic HTML</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem; color: #666;">
+            <p>Built as part of the RepositoryDemo project</p>
+        </div>
+    </div>
+</body>
+</html>
