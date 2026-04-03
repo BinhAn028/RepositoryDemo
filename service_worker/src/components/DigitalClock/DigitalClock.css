@@ -1,0 +1,206 @@
+.digital-clock {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 0.5rem;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-width: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.digital-clock:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(31, 38, 135, 0.45);
+}
+
+.digital-clock::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.digital-clock:hover::before {
+  left: 100%;
+}
+
+.timezone-header {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.timezone-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.timezone-city {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.timezone-offset {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-top: 0.25rem;
+}
+
+.time-display {
+  font-family: 'Courier New', monospace;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 1rem 0 0.5rem 0;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.05em;
+}
+
+.time-period {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  opacity: 0.9;
+}
+
+.date-display {
+  font-size: 1rem;
+  opacity: 0.95;
+  margin-top: 0.5rem;
+  font-weight: 300;
+}
+
+.clock-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.clock-controls {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.format-toggle {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.format-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.format-toggle:active {
+  transform: translateY(0);
+}
+
+.main-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 2rem 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .clock-container {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+  }
+  
+  .digital-clock {
+    margin: 0.25rem;
+    padding: 1rem;
+    min-width: unset;
+  }
+  
+  .time-display {
+    font-size: 2rem;
+  }
+  
+  .main-title {
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .time-display {
+    font-size: 1.75rem;
+  }
+  
+  .timezone-name {
+    font-size: 1rem;
+  }
+  
+  .main-title {
+    font-size: 1.75rem;
+  }
+}
+
+/* Dark theme compatibility */
+@media (prefers-color-scheme: dark) {
+  .digital-clock {
+    background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .main-title {
+    background: linear-gradient(135deg, #90CDF4 0%, #BEE3F8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Animation for smooth transitions */
+.time-display,
+.date-display {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .digital-clock,
+  .format-toggle,
+  .time-display,
+  .date-display {
+    transition: none;
+  }
+  
+  .digital-clock:hover {
+    transform: none;
+  }
+  
+  .digital-clock::before {
+    display: none;
+  }
+}
